@@ -1,18 +1,17 @@
-services:
-  # Servicio del Backend (Node.js, Python, PHP...)
-  api:
-    build: ./backend
-    ports:
-      - "3000:3000"  # Mapea el puerto 3000 del contenedor al 3000 de tu PC
-    volumes:
-      - ./backend:/app # Sincroniza tu código para ver cambios en vivo
-    environment:
-      - NODE_ENV=production
+version: '3.8'
 
-  # Servicio del Frontend (Servidor web sencillo)
-  web:
-    image: nginx:alpine
+services:
+  backend:
+    build: ./backend
+    container_name: futbolmania_backend
     ports:
-      - "8080:80"    # Entrarás a tu app desde http://localhost:8080
+      - "3000:3000"
     volumes:
-      - ./frontend:/usr/share/nginx/html # Sirve tus archivos HTML/JS
+      # 🛡️ LA MAGIA DEL GUARDADO LOCAL:
+      # Sincroniza la carpeta de tu PC con la del contenedor.
+      # Así, cuando SQLite cree "foro.db", se guardará en tu disco duro real.
+      - ./backend:/app
+      # Evitamos sobrescribir los módulos de node locales
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development

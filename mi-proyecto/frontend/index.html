@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutbolMania - El 3er Tiempo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stadium-bg"></div>
+
+    <main class="main-container">
+        
+        <header class="scoreboard-header">
+            <div class="logo">⚽ FutbolMania </div>
+            <div class="status">⚽ En Directo</div>
+            <button id="btn-logout" class="hidden outline-btn">Abandonar Campo</button>
+            <button id="btn-show-login" class="outline-btn">Entrar al Estadio</button>
+        </header>
+
+        <section id="auth-section">
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h2 id="auth-title">SALTO AL CAMPO</h2>
+                    <p>Vicente Calderon</p>
+                </div>
+                <div class="ticket-body">
+                    <form id="auth-form">
+                        <div class="input-group">
+                            <label for="email">Tu Email de Fichaje</label>
+                            <input type="email" id="email" placeholder="socio@atleticodemadrid.com" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password">Tu Clave Táctica</label>
+                            <input type="password" id="password" placeholder="••••••••" required minlength="6">
+                        </div>
+                        
+                        <input type="password" id="confirm-password" class="hidden" placeholder="Confirma tu táctica">
+                        
+                        <div id="auth-error" class="error-text hidden"></div>
+                        <button type="submit" id="btn-submit-auth" class="primary-btn">¡Saltar al Césped!</button>
+                    </form>
+                    
+                    <div class="toggle-text">
+                        <a href="#" id="toggle-auth-mode">¿No tienes ficha? Regístrate aquí</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="wall-section" class="hidden">
+            
+            <article id="publish-box" class="vestuario-card">
+                <form id="publish-form" class="vestuario-form">
+                    <h3>Charla Técnica</h3>
+                    <textarea id="new-message" placeholder="¿Cuál es tu análisis del partido?" required maxlength="255"></textarea>
+                    <button type="submit" class="primary-btn">¡Dar el Pase!</button>
+                    <div id="publish-error" class="error-text hidden"></div>
+                </form>
+            </article>
+
+            <h3>Comentarios en Directo</h3>
+            <div id="messages-container" class="messages-list">
+                </div>
+            
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

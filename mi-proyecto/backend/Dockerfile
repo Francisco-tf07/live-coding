@@ -14,5 +14,6 @@ COPY . .
 # Expone el puerto que usa tu app
 EXPOSE 3000
 
-# Comando para arrancar la app
-CMD ["node", "app.js"]
+
+# Comando para arrancar el servidor
+CMD ["npm", "start"]
